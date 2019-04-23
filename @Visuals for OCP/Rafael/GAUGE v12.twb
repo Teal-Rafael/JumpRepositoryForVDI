@@ -1,0 +1,490 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20181.18.0706.1237                               -->
+<workbook original-version='18.1' source-build='2018.1.3 (20181.18.0706.1237)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='TestDataSource' inline='true' name='federated.047vqqx11alfsh1d9ejz005j3ivf' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='10.21.62.178' name='mongodb.1c1isam0e3iv1w18bexme01kiory'>
+            <connection class='mongodb' dbname='EIB_DB' one-time-sql='' port='3308' server='10.21.62.178' source-charset='' username='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='mongodb.1c1isam0e3iv1w18bexme01kiory' name='Custom SQL Query' type='text'>SELECT Item_Id, &#13;&#10;ITEM_VALUE, &#13;&#10;max(Item_Timestamp),&#13;&#10;0 AS GAUGE_PATH&#13;&#10;from OPC_PLANT_DATA&#13;&#10;where &#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.PV&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.LL&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.PL&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.PH&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.HH&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.PV&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.LL&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.PL&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.PH&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.HH&apos;&#13;&#10;group by Item_Id&#13;&#10;&#13;&#10;union all&#13;&#10;&#13;&#10;SELECT Item_Id, &#13;&#10;ITEM_VALUE, &#13;&#10;max(Item_Timestamp),&#13;&#10;105 AS GAUGE_PATH&#13;&#10;from OPC_PLANT_DATA&#13;&#10;where &#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.PV&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.LL&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.PL&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.PH&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI140A.HH&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.PV&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.LL&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.PL&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.PH&apos; or&#13;&#10;Item_Id= &apos;FCS0103!501ATI163A.HH&apos;&#13;&#10;group by Item_Id</relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Item_Id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Item_Id]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>Item_Id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>21845</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ITEM_VALUE</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ITEM_VALUE]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>ITEM_VALUE</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max(Item_Timestamp)</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[max(Item_Timestamp)]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>max(Item_Timestamp)</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GAUGE_PATH</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[GAUGE_PATH]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>GAUGE_PATH</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='GAUGE_X' datatype='real' name='[Calculation_639511152362307584]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF      INDEX()-1&lt;=100 THEN COS(PI()*(INDEX()-1)/100)&#13;&#10;ELSEIF  INDEX()=102 THEN -1&#13;&#10;ELSEIF  INDEX()=103 THEN 0&#13;&#10;ELSEIF  INDEX()=104 THEN 0&#13;&#10;ELSEIF  INDEX()=105 THEN 0&#13;&#10;ELSEIF  INDEX()=106 THEN COS(PI()*WINDOW_MAX(MAX([GAUGE_HH (copy)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])))&#13;&#10;END'>
+          <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+        </calculation>
+      </column>
+      <column caption='GAUGE_COLORGROUP' datatype='integer' name='[Calculation_639511152363880449]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF      INDEX()&lt;=101 AND (1-INDEX()/100) &gt;= WINDOW_MAX(MAX([GAUGE_LL (copy 3)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 5&#13;&#10;ELSEIF  INDEX()&lt;=101 AND (1-INDEX()/100) &gt;= WINDOW_MAX(MAX([GAUGE_LL (copy 2)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 4&#13;&#10;ELSEIF  INDEX()&lt;=101 AND (1-INDEX()/100) &gt;= WINDOW_MAX(MAX([GAUGE_LL (copy)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 3&#13;&#10;ELSEIF  INDEX()&lt;=101 AND (1-INDEX()/100) &gt;= WINDOW_MAX(MAX([Calculation_639511152365764610]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 2&#13;&#10;ELSEIF  INDEX()&lt;=101 AND (1-INDEX()/100) &lt; WINDOW_MAX(MAX([Calculation_639511152365764610]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 1&#13;&#10;ELSEIF  INDEX()=102 THEN 1&#13;&#10;ELSEIF  INDEX()=103 THEN 6&#13;&#10;ELSEIF  INDEX()=104 THEN 6&#13;&#10;ELSEIF  INDEX()=105 THEN 7&#13;&#10;ELSEIF  INDEX()=106 THEN 7&#13;&#10;ELSE 0 END'>
+          <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+        </calculation>
+      </column>
+      <column caption='GAUGE_LL' datatype='real' name='[Calculation_639511152365764610]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.LL&quot;) THEN [ITEM_VALUE] END' />
+      </column>
+      <column caption='GAUGE_Label' datatype='real' default-format='n#,##0&quot;°C&quot;;-#,##0&quot;°C&quot;' name='[Calculation_867505884606451715]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if INDEX()=106 then max([GAUGE_HH (copy)]) end'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='GAUGE_TT_ITEM_ID' datatype='string' name='[Calculation_867505884622667780]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PV&quot;) THEN [Item_Id] END' />
+      </column>
+      <column caption='GAUGE_PV' datatype='real' default-format='n#,##0;-#,##0' name='[GAUGE_HH (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PV&quot;) THEN [ITEM_VALUE] END' />
+      </column>
+      <column caption='GAUGE_PH' datatype='real' name='[GAUGE_LL (copy 2)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PH&quot;) THEN [ITEM_VALUE] END' />
+      </column>
+      <column caption='GAUGE_HH' datatype='real' name='[GAUGE_LL (copy 3)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.HH&quot;) THEN [ITEM_VALUE] END' />
+      </column>
+      <column caption='GAUGE_PL' datatype='real' name='[GAUGE_LL (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PL&quot;) THEN [ITEM_VALUE] END' />
+      </column>
+      <column aggregation='None' caption='GAUGE_PATH (bin)' datatype='integer' name='[GAUGE_PATH (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[GAUGE_PATH]' peg='0' size='1' />
+      </column>
+      <column datatype='integer' name='[GAUGE_PATH]' role='measure' type='quantitative' />
+      <column caption='GAUGE_SCALE' datatype='real' name='[GAUGE_PL (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.HH&quot;) THEN [ITEM_VALUE]*1.2 END' />
+      </column>
+      <column caption='GAUGE_TT_ITEM_VALUE' datatype='real' name='[GAUGE_TT_ITEM_ID (copy)]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PV&quot;) THEN [ITEM_VALUE] END' />
+      </column>
+      <column caption='Item Value' datatype='real' name='[ITEM_VALUE]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='GAUGE_Y' datatype='real' name='[X (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF      INDEX()-1&lt;=100 THEN sin(PI()*(INDEX()-1)/100)&#13;&#10;ELSEIF  INDEX()=102 THEN -0.1&#13;&#10;ELSEIF  INDEX()=103 THEN -0.1&#13;&#10;ELSEIF  INDEX()=104 THEN 0&#13;&#10;ELSEIF  INDEX()=105 THEN 0&#13;&#10;ELSEIF  INDEX()=106 THEN SIN(PI()*WINDOW_MAX(MAX([GAUGE_HH (copy)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])))&#13;&#10;END'>
+          <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+        </calculation>
+      </column>
+      <column-instance column='[Calculation_639511152363880449]' derivation='User' name='[usr:Calculation_639511152363880449:ok:2]' pivot='key' type='ordinal'>
+        <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+      </column-instance>
+      <layout dim-ordering='alphabetic' dim-percentage='0.394207' measure-ordering='alphabetic' measure-percentage='0.605793' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[usr:Calculation_639511152363880449:ok:2]' type='palette'>
+            <map to='#000000'>
+              <bucket>7</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>0</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>3</bucket>
+            </map>
+            <map to='#ff0000'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#ff0000'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#ffff00'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#ffff00'>
+              <bucket>4</bucket>
+            </map>
+            <map to='#ffffff'>
+              <bucket>6</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;France&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Gauge'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='36'>Temperature</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='TestDataSource' name='federated.047vqqx11alfsh1d9ejz005j3ivf' />
+          </datasources>
+          <datasource-dependencies datasource='federated.047vqqx11alfsh1d9ejz005j3ivf'>
+            <column caption='GAUGE_X' datatype='real' name='[Calculation_639511152362307584]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF      INDEX()-1&lt;=100 THEN COS(PI()*(INDEX()-1)/100)&#13;&#10;ELSEIF  INDEX()=102 THEN -1&#13;&#10;ELSEIF  INDEX()=103 THEN 0&#13;&#10;ELSEIF  INDEX()=104 THEN 0&#13;&#10;ELSEIF  INDEX()=105 THEN 0&#13;&#10;ELSEIF  INDEX()=106 THEN COS(PI()*WINDOW_MAX(MAX([GAUGE_HH (copy)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])))&#13;&#10;END'>
+                <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+              </calculation>
+            </column>
+            <column caption='GAUGE_COLORGROUP' datatype='integer' name='[Calculation_639511152363880449]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF      INDEX()&lt;=101 AND (1-INDEX()/100) &gt;= WINDOW_MAX(MAX([GAUGE_LL (copy 3)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 5&#13;&#10;ELSEIF  INDEX()&lt;=101 AND (1-INDEX()/100) &gt;= WINDOW_MAX(MAX([GAUGE_LL (copy 2)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 4&#13;&#10;ELSEIF  INDEX()&lt;=101 AND (1-INDEX()/100) &gt;= WINDOW_MAX(MAX([GAUGE_LL (copy)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 3&#13;&#10;ELSEIF  INDEX()&lt;=101 AND (1-INDEX()/100) &gt;= WINDOW_MAX(MAX([Calculation_639511152365764610]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 2&#13;&#10;ELSEIF  INDEX()&lt;=101 AND (1-INDEX()/100) &lt; WINDOW_MAX(MAX([Calculation_639511152365764610]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])) THEN 1&#13;&#10;ELSEIF  INDEX()=102 THEN 1&#13;&#10;ELSEIF  INDEX()=103 THEN 6&#13;&#10;ELSEIF  INDEX()=104 THEN 6&#13;&#10;ELSEIF  INDEX()=105 THEN 7&#13;&#10;ELSEIF  INDEX()=106 THEN 7&#13;&#10;ELSE 0 END'>
+                <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+              </calculation>
+            </column>
+            <column caption='GAUGE_LL' datatype='real' name='[Calculation_639511152365764610]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.LL&quot;) THEN [ITEM_VALUE] END' />
+            </column>
+            <column caption='GAUGE_Label' datatype='real' default-format='n#,##0&quot;°C&quot;;-#,##0&quot;°C&quot;' name='[Calculation_867505884606451715]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if INDEX()=106 then max([GAUGE_HH (copy)]) end'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='GAUGE_TT_ITEM_ID' datatype='string' name='[Calculation_867505884622667780]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PV&quot;) THEN [Item_Id] END' />
+            </column>
+            <column caption='GAUGE_PV' datatype='real' default-format='n#,##0;-#,##0' name='[GAUGE_HH (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PV&quot;) THEN [ITEM_VALUE] END' />
+            </column>
+            <column caption='GAUGE_PH' datatype='real' name='[GAUGE_LL (copy 2)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PH&quot;) THEN [ITEM_VALUE] END' />
+            </column>
+            <column caption='GAUGE_HH' datatype='real' name='[GAUGE_LL (copy 3)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.HH&quot;) THEN [ITEM_VALUE] END' />
+            </column>
+            <column caption='GAUGE_PL' datatype='real' name='[GAUGE_LL (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PL&quot;) THEN [ITEM_VALUE] END' />
+            </column>
+            <column aggregation='None' caption='GAUGE_PATH (bin)' datatype='integer' name='[GAUGE_PATH (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[GAUGE_PATH]' peg='0' size='1' />
+            </column>
+            <column datatype='integer' name='[GAUGE_PATH]' role='measure' type='quantitative' />
+            <column caption='GAUGE_SCALE' datatype='real' name='[GAUGE_PL (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.HH&quot;) THEN [ITEM_VALUE]*1.2 END' />
+            </column>
+            <column caption='GAUGE_TT_ITEM_VALUE' datatype='real' name='[GAUGE_TT_ITEM_ID (copy)]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='IF ENDSWITH([Item_Id],&quot;.PV&quot;) THEN [ITEM_VALUE] END' />
+            </column>
+            <column caption='Item Value' datatype='real' name='[ITEM_VALUE]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Item_Id]' role='dimension' type='nominal' />
+            <column caption='GAUGE_Y' datatype='real' name='[X (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF      INDEX()-1&lt;=100 THEN sin(PI()*(INDEX()-1)/100)&#13;&#10;ELSEIF  INDEX()=102 THEN -0.1&#13;&#10;ELSEIF  INDEX()=103 THEN -0.1&#13;&#10;ELSEIF  INDEX()=104 THEN 0&#13;&#10;ELSEIF  INDEX()=105 THEN 0&#13;&#10;ELSEIF  INDEX()=106 THEN SIN(PI()*WINDOW_MAX(MAX([GAUGE_HH (copy)]))/WINDOW_MAX(MAX([GAUGE_PL (copy)])))&#13;&#10;END'>
+                <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+              </calculation>
+            </column>
+            <column-instance column='[Calculation_867505884622667780]' derivation='Attribute' name='[attr:Calculation_867505884622667780:nk]' pivot='key' type='nominal' />
+            <column-instance column='[GAUGE_TT_ITEM_ID (copy)]' derivation='Max' name='[cum:max:GAUGE_TT_ITEM_ID (copy):qk:2]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Max' ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' type='CumTotal' />
+            </column-instance>
+            <column-instance column='[GAUGE_HH (copy)]' derivation='Max' name='[max:GAUGE_HH (copy):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[GAUGE_PATH (bin)]' derivation='None' name='[none:GAUGE_PATH (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Item_Id]' derivation='None' name='[none:Item_Id:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_639511152362307584]' derivation='User' name='[usr:Calculation_639511152362307584:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Calculation_639511152363880449]' derivation='User' name='[usr:Calculation_639511152363880449:ok:2]' pivot='key' type='ordinal'>
+              <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Calculation_867505884606451715]' derivation='User' name='[usr:Calculation_867505884606451715:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[X (copy)]' derivation='User' name='[usr:X (copy):qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.047vqqx11alfsh1d9ejz005j3ivf].[none:Item_Id:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Item_Id:nk]' member='&quot;FCS0103!501ATI140A.HH&quot;' />
+              <groupfilter function='member' level='[none:Item_Id:nk]' member='&quot;FCS0103!501ATI140A.LL&quot;' />
+              <groupfilter function='member' level='[none:Item_Id:nk]' member='&quot;FCS0103!501ATI140A.PH&quot;' />
+              <groupfilter function='member' level='[none:Item_Id:nk]' member='&quot;FCS0103!501ATI140A.PL&quot;' />
+              <groupfilter function='member' level='[none:Item_Id:nk]' member='&quot;FCS0103!501ATI140A.PV&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.047vqqx11alfsh1d9ejz005j3ivf].[none:Item_Id:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:X (copy):qk]' field-type='quantitative' min='0.0' range-type='fixedmin' scope='rows' type='space' />
+            <format attr='display' class='0' field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:X (copy):qk]' scope='rows' value='false' />
+            <format attr='display' class='0' field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_639511152362307584:qk]' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.047vqqx11alfsh1d9ejz005j3ivf].[max:GAUGE_HH (copy):qk]' value='n#,##0;-#,##0' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_639511152363880449:ok:2]' />
+              <text column='[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_867505884606451715:qk:2]' />
+              <lod column='[federated.047vqqx11alfsh1d9ejz005j3ivf].[max:GAUGE_HH (copy):qk]' />
+              <lod column='[federated.047vqqx11alfsh1d9ejz005j3ivf].[attr:Calculation_867505884622667780:nk]' />
+              <lod column='[federated.047vqqx11alfsh1d9ejz005j3ivf].[cum:max:GAUGE_TT_ITEM_ID (copy):qk:2]' />
+              <path column='[federated.047vqqx11alfsh1d9ejz005j3ivf].[none:GAUGE_PATH (bin):ok]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Tag Name:&#9;</run>
+                <run bold='true'>&lt;[federated.047vqqx11alfsh1d9ejz005j3ivf].[attr:Calculation_867505884622667780:nk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Tag Value:&#9;</run>
+                <run bold='true'>&lt;[federated.047vqqx11alfsh1d9ejz005j3ivf].[cum:max:GAUGE_TT_ITEM_ID (copy):qk:2]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='cell'>
+                <format attr='vertical-align' value='top' />
+              </style-rule>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='auto' />
+                <format attr='font-size' value='24' />
+                <format attr='font-weight' value='bold' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='size' value='14.547999382019043' />
+                <format attr='shape' value='circle' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:X (copy):qk]</rows>
+        <cols>[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_639511152362307584:qk]</cols>
+        <show-full-range>
+          <column>[federated.047vqqx11alfsh1d9ejz005j3ivf].[GAUGE_PATH (bin)]</column>
+        </show-full-range>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Gauge'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_639511152363880449:ok:2]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[none:Calculation_867505884622667780:nk]</field>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[none:GAUGE_PATH (bin):ok]</field>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[none:GAUGE_TT_ITEM_ID (copy):nk]</field>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[none:Item_Id:nk]</field>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_639511152362307584:ok]</field>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_639511152363880449:nk:1]</field>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_639511152363880449:ok:2]</field>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:Calculation_639511153393999893:ok]</field>
+            <field>[federated.047vqqx11alfsh1d9ejz005j3ivf].[usr:X (copy):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Gauge' width='192'>
+      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
+      SUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
